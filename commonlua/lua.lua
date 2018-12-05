@@ -185,31 +185,50 @@ local useTime=endTime-startTime
 print('消耗时间'..useTime..'s')
 --]]
 
---[[
-function printResult (a)
-    for i = 1, #a do
-        io.write(a[i], " ")
-    end
-    io.write("\n")
-end
-function Permute(a,k)
-    local len = #a
-    if(len == k) then
-        printResult(a)
-    else
-        for i=k, len do
-            a[i], a[k] = a[k], a[i]--赋值 交换 如x,y=y,x
-            Permute(a,k+1)
-            a[i], a[k] = a[k], a[i]--恢复原来的顺序
-        end
-    end
-end
+--排序第一题
+--function printResult (a)
+--    for i = 1, #a do
+--        io.write(a[i], " ")
+--    end
+--    io.write("\n")
+--end
+--function Permute(a,k)
+--    local len = #a
+--    if(len == k) then
+--        printResult(a)
+--    else
+--        for i=k, len do
+--            a[i], a[k] = a[k], a[i]--赋值 交换 如x,y=y,x
+--            Permute(a,k+1)
+--            a[i], a[k] = a[k], a[i]--恢复原来的顺序
+--        end
+--    end
+--end
+--arr = {"a", "b", "c"}
+--Permute(arr,1)
 
-arr = {"a", "b", "c"}
-Permute(arr,1)
---]]--排序第一题
-
-
+--排序第二题
+--function printResult(a)
+--    for i = 1, #a do
+--        io.write(a[i],' ')
+--    end
+--    io.write('\n')
+--end
+--function Permute(a,k)
+-- local len=#a
+--    if len==k then
+--        printResult(a)
+--    else
+--        for i = 1, len do
+--            a[i]=a[i]
+--            Permute(a,k+1)
+--
+--        end
+--    end
+--end
+--array={'a','b','c'}
+--    Permute(array,1)
+--二分查找
 --[[
 array={1,34,44,54,66,77,688,788,9999}
 function search(a,v)
@@ -232,4 +251,24 @@ function search(a,v)
     return mid,a[mid]
 end
 print(search(array,788))
---]]--二分查找
+--]]
+--逆序对
+--[[
+array={7,5,6,4,1,9,11,3}
+array1={}
+
+for i = 1, #array do
+    for j = 1, #array do
+        if i<j then
+            if array[i]>array[j] then
+                s=array[i]..','..array[j]
+                table.insert(array1,s)
+            end
+        end
+    end
+end
+for i, v in pairs(array1) do
+    print(i,v)
+end
+print('数组长度为'..#array1)
+--]]
